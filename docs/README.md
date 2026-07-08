@@ -31,13 +31,10 @@ Esta pasta contem a versao web do projeto de grafos, sem backend, pronta para pu
 ## Publicar no GitHub Pages
 
 1. Suba o repositorio para o GitHub.
-2. Abra Settings > Pages.
-3. Em Build and deployment:
-   - Source: Deploy from a branch
-   - Branch: main
-   - Folder: /docs
-4. Salve.
-5. Aguarde o link publico ser gerado pelo GitHub.
+2. Abra Settings > Pages e configure:
+   - Source: GitHub Actions
+3. O workflow `.github/workflows/deploy-github-pages.yml` faz o deploy automatico da pasta `docs/` quando houver push na `main`.
+4. Aguarde o link publico ser gerado pelo GitHub.
 
 ## Desenvolvimento local
 
