@@ -63,6 +63,7 @@ A classe principal da interface fica em `src/main/java/MainFrame.java`.
 ## Versao web
 
 A pasta `docs/` contem uma versao estatica em HTML, CSS e JS, pronta para ser publicada no GitHub Pages.
+O workflow `.github/workflows/deploy-github-pages.yml` publica automaticamente a pagina a partir do `docs/index.html`.
 
 ## Observacao academica
 
