@@ -1,0 +1,4 @@
+digraph G_Reduzido {
+    "a_d_b" -> "c" ;
+    "c";
+}

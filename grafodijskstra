@@ -1,0 +1,6 @@
+graph grafo1 {
+    "A" -- "B" [label="1.0"];
+    "A" -- "C" [label="1.0"];
+    "B" -- "D" [label="1.0"];
+    "C" -- "D" [label="1.0"];
+}

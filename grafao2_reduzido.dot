@@ -1,0 +1,19 @@
+digraph G_Reduzido {
+    "A_C_B" -> "D_F_E" [label="2.0"];
+    "A_C_B" -> "J_L_K" [label="8.0"];
+    "D_F_E" -> "G_I_H" [label="6.0"];
+    "D_F_E" -> "M_O_N" [label="3.0"];
+    "G_I_H" -> "P_R_Q" [label="7.0"];
+    "G_I_H" -> "J_L_K" [label="5.0"];
+    "J_L_K" -> "S_U_T" [label="2.0"];
+    "J_L_K" -> "M_O_N" [label="6.0"];
+    "M_O_N" -> "V_X_W" [label="6.0"];
+    "M_O_N" -> "P_R_Q" [label="3.0"];
+    "P_R_Q" -> "S_U_T" [label="7.0"];
+    "P_R_Q" -> "Y_AA_Z" [label="4.0"];
+    "S_U_T" -> "V_X_W" [label="5.0"];
+    "S_U_T" -> "BB_DD_CC" [label="9.0"];
+    "V_X_W" -> "Y_AA_Z" [label="7.0"];
+    "Y_AA_Z" -> "BB_DD_CC" [label="5.0"];
+    "BB_DD_CC";
+}

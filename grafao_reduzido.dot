@@ -1,0 +1,12 @@
+digraph G_Reduzido {
+    "A_C_B" -> "D_F_E" ;
+    "D_F_E" -> "G_I_H" ;
+    "G_I_H" -> "J_L_K" ;
+    "J_L_K" -> "M_O_N" ;
+    "M_O_N" -> "P_R_Q" ;
+    "P_R_Q" -> "S_U_T" ;
+    "S_U_T" -> "V_X_W" ;
+    "V_X_W" -> "Y_AA_Z" ;
+    "Y_AA_Z" -> "BB_DD_CC" ;
+    "BB_DD_CC";
+}

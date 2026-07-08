@@ -1,0 +1,6 @@
+graph graphname {
+     e ;
+     a -- b [label="1.5"];
+     b -- c [label="2.2"];
+     b -- d [label="3.0"];
+   }
