@@ -28,14 +28,45 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check Pages configuration
+        id: pages
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PAGES_API_URL: ${{ github.api_url }}/repos/${{ github.repository }}/pages
+        run: |
+          set -euo pipefail
+
+          status_code="$(curl --silent --show-error --output /tmp/pages-site.json --write-out "%{http_code}" \
+            --oauth2-bearer "${GITHUB_TOKEN}" \
+            --header "Accept: application/vnd.github+json" \
+            "${PAGES_API_URL}")"
+
+          if [ "${status_code}" = "200" ]; then
+            echo "enabled=true" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          if [ "${status_code}" = "404" ]; then
+            echo "enabled=false" >> "${GITHUB_OUTPUT}"
+            echo "::warning::GitHub Pages is not enabled for this repository. Enable Settings > Pages with Source set to GitHub Actions to allow deployments."
+            exit 0
+          fi
+
+          cat /tmp/pages-site.json >&2 || true
+          echo "::error::Unable to determine the GitHub Pages configuration (HTTP ${status_code})."
+          exit 1
+
       - name: Setup Pages
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
 
       - name: Deploy to GitHub Pages
         id: deployment
+        if: steps.pages.outputs.enabled == 'true'
         uses: actions/deploy-pages@v4
